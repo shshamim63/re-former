@@ -5,7 +5,7 @@
     <title>New User</title>
   </head>
   <body>
-    <form action=<%="#{new_user_path}"%> method="get">
+    <form action='/users' method="get">
       Username: <input type="text" name="fname"><br>
       E-mail: <input type="email" name="email"><br>
       Password: <input type="password" name="password"><br>
@@ -14,21 +14,35 @@
     </form>
   </body>
 </html> -->
-<%= form_for @user do |form|%>
-<div class="field">
-  <%= form.label :username %>
-  <%= form.text_field :username %>
-</div>
-<div class="field">
-  <%= form.label :email %>
-  <%= form.text_field :email %>
-</div>
-<div class="field">
-  <%= form.label :password %>
-  <%= form.text_field :password %>
-</div>
+<% user = @user %>
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
-<div class="action">
-  <%= form.submit %>
-</div>
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <div class="action">
+    <%= form.submit %>
+  </div>
 <% end %>

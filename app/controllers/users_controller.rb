@@ -14,12 +14,28 @@ class UsersController < ApplicationController
   end
 
   def edit
+    set_user
   end
 
   def update
+    set_user
+    if @user.update(user_params)
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render :edit
+    end
   end
-  
+
+  def show
+    set_user
+  end
+
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:username,:email,:password)
   end
