@@ -1,24 +1,7 @@
-# README
+### Form
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The aim of this project is to use the functionality of rails Forms and Controller. It shows the use of routes and the basic idea of using view. Is a part of Microverse curriculum.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Authors
+[Shakhawat Hossain](https://github.com/shshamim63)
+[Jose Arteche](https://github.com/trillianjose)
